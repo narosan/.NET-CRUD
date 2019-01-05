@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudMongo", "ConexaoMongo\CrudMongo.csproj", "{0C7443C4-78E8-422D-89CB-07A7D3070BE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{24505BAB-9BB0-41A8-A6CC-AEE1270686F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{24505BAB-9BB0-41A8-A6CC-AEE1270686F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{62CF06DB-571F-48B0-98E1-940D90319CAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{62CF06DB-571F-48B0-98E1-940D90319CAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Primary", "Mongo\Primary.csproj", "{4E450FD4-55C2-49E8-ADD0-054045A49B5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0C7443C4-78E8-422D-89CB-07A7D3070BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C7443C4-78E8-422D-89CB-07A7D3070BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C7443C4-78E8-422D-89CB-07A7D3070BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C7443C4-78E8-422D-89CB-07A7D3070BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24505BAB-9BB0-41A8-A6CC-AEE1270686F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24505BAB-9BB0-41A8-A6CC-AEE1270686F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24505BAB-9BB0-41A8-A6CC-AEE1270686F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{62CF06DB-571F-48B0-98E1-940D90319CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62CF06DB-571F-48B0-98E1-940D90319CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62CF06DB-571F-48B0-98E1-940D90319CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E450FD4-55C2-49E8-ADD0-054045A49B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E450FD4-55C2-49E8-ADD0-054045A49B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E450FD4-55C2-49E8-ADD0-054045A49B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E450FD4-55C2-49E8-ADD0-054045A49B5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

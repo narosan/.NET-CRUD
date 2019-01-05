@@ -20,8 +20,7 @@ namespace BLL
 
         public string ListarDocumentos()
         {
-            List<Pessoa> pessoas = db
-                                    .GetCollection<Pessoa>("pessoas")
+            List<Pessoa> pessoas =  db.GetCollection<Pessoa>("pessoas")
                                     .Find(_ => true)
                                     .SortBy(p => p.id)
                                     .ToList();
@@ -44,14 +43,24 @@ namespace BLL
             }
             json += "\n]";
 
-            return TrocarPrimeiroCaracter(json, ",", "");
+            return json;
         }
 
         public Base InserirDocumento(Pessoa pessoa)
         {
             string Msg = "Documento inserido com sucesso.";
             bool Ok = true;
-            try { db.GetCollection<Pessoa>("pessoas").InsertOne(pessoa); }
+            try
+            {
+                Pessoa ultimaPessoa =   db.GetCollection<Pessoa>("pessoas")
+                                        .Find(_ => true)
+                                        .SortByDescending(p => p.id)
+                                        .First();
+                pessoa.id = ultimaPessoa.id + 1;
+                //Gambiarra porque o campo id não é auto increment xD
+
+                db.GetCollection<Pessoa>("pessoas").InsertOne(pessoa);
+            }
             catch (Exception e)
             {
                 Ok = !Ok;
@@ -82,7 +91,7 @@ namespace BLL
             catch (Exception e)
             {
                 Ok = !Ok;
-                Msg = "Não foi possivel alterar o documento de id: " + id;
+                Msg = "Não foi possivel alterar o documento de id: " + pessoa.id;
             }
             return new Base { Msg = Msg, Ok = Ok, Obj = pessoa };
         }
@@ -94,7 +103,9 @@ namespace BLL
             Pessoa pessoa = new Pessoa();
             try
             {
-                pessoa = db.GetCollection<Pessoa>("pessoas").Find(p => p.id == id).First();
+                pessoa =    db.GetCollection<Pessoa>("pessoas")
+                            .Find(p => p.id == id)
+                            .First();
             }
             catch (Exception e)
             {
@@ -102,13 +113,6 @@ namespace BLL
                 Msg = "Não foi possivel encontrar o documento de id:" + id;
             }
             return new Base { Msg = Msg, Ok = Ok, Obj = pessoa };
-        }
-
-        public static string TrocarPrimeiroCaracter(string Source, string Find, string Replace)
-        {
-            int Place = Source.IndexOf(Find);
-            string result = Source.Remove(Place, Find.Length).Insert(Place, Replace);
-            return result;
         }
     }
 }
