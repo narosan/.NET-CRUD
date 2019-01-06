@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Primary
+namespace Main
 {
     public class Mongo
     {
@@ -18,7 +18,7 @@ namespace Primary
                 Console.WriteLine("2 - Inserir documento.");
                 Console.WriteLine("3 - Alterar documento.");
                 Console.WriteLine("4 - Deletar documento.");
-                Console.WriteLine("5 - Procurar documento.\n");
+                Console.WriteLine("5 - Procurar documento.\n=> ");
 
                 try { menu = Int32.Parse(Console.ReadLine()); }
                 catch (Exception e) { throw new Exception("Você não selecionou um número válido."); }

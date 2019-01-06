@@ -85,7 +85,7 @@ namespace BLL
 
         public Base AlterarDocumento(Pessoa pessoa)
         {
-            string Msg = "";
+            string Msg = "Documento alterado com sucesso.";
             bool Ok = true;
             try { db.GetCollection<Pessoa>("pessoas").ReplaceOne(p => p.id == pessoa.id, pessoa); }
             catch (Exception e)

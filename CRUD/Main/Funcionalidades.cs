@@ -5,7 +5,7 @@ using DTO;
 using BLL;
 using System.Text.RegularExpressions;
 
-namespace Primary
+namespace Main
 {
     public class Funcionalidades : Util
     {
@@ -65,7 +65,7 @@ namespace Primary
 
         public void DeletarDocumento()
         {
-            Console.WriteLine("Informe o id do documento que deseja excluir.");
+            Console.WriteLine("Informe o id do documento que deseja excluir => ");
             try
             {
                 int id = Convert.ToInt32(Console.ReadLine());
@@ -81,7 +81,7 @@ namespace Primary
         public void AlterarDocumento()
         {
             Pessoa pessoa = new Pessoa();
-            Console.WriteLine("Informe o id do documento que deseja alterar.");
+            Console.WriteLine("Informe o id do documento que deseja alterar => ");
             try
             {
                 pessoa.id = Convert.ToInt32(Console.ReadLine());
@@ -122,13 +122,19 @@ namespace Primary
 
         public void ProcurarDocumento()
         {
-            Console.WriteLine("Informe o id do documento que deseja buscar.");
+            Console.WriteLine("Informe o id do documento que deseja buscar => ");
             try
             {
                 int id = Convert.ToInt32(Console.ReadLine());
                 Base obj = new PessoasBLL().ProcurarDocumento(id);
                 if (obj.Ok)
-                    Console.WriteLine(obj.Msg + "\n");
+                {
+                    Pessoa achada = obj.Obj;
+                    Console.WriteLine("\n" + achada.nome + " " + achada.sobrenome + "\n");
+                    if(achada.amigos != null)
+                        foreach (var a in achada.amigos)
+                            Console.WriteLine(a.nomeCompleto + "\n");
+                }
                 else
                     Console.WriteLine(obj.Msg + "\n");
             }
