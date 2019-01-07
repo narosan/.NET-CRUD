@@ -1,8 +1,15 @@
-# .NET-CRUD
-CRUD usando .NET e MongoDB
+**CRUD usando .NET e MongoDB**
+---
+1.Para começar o projeto, você precisa criar um database exemplo.
 
-Para começar o projeto, você precisa criar um database exemplo
-e uma collection de pessoas, inserir o documento json que está na pasta Database
+>`use exemplo`
+
+2.Inserir o documento json que está na pasta Database
 na sua collection com o seguinte comando.
 
-mongoimport --stopOnError --db exemplo --collection clientes < "caminho do json" --jsonArray
+>`mongoimport --stopOnError --db exemplo --collection clientes < "caminho do json" --jsonArray`
+
+3.Instalar o driver do MongoDB no projeto do VisualStudio,
+utilizar o comando dentro do NuGet.
+
+>`Install-Package MongoDB.Driver -Version 2.7.2`
